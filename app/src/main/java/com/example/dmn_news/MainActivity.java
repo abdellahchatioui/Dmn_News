@@ -34,12 +34,15 @@ public class MainActivity extends AppCompatActivity {
                 .load("https:/picsum.photos/seed/200/200")
                 .into(imageView);
 
+
         RequestQueue queue = Volley.newRequestQueue(this);
         String url = "https:/picsum.photos/seed/200/200";
+
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 response -> Toast.makeText(this, "Volley Works!", Toast.LENGTH_SHORT).show(),
                 error -> Toast.makeText(this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show());
         queue.add(stringRequest);
+
 
     }
 }

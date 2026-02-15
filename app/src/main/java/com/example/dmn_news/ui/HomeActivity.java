@@ -1,4 +1,4 @@
-package com.example.dmn_news;
+package com.example.dmn_news.ui;
 
 import android.os.Bundle;
 
@@ -7,6 +7,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.android.volley.Request;
+import com.android.volley.toolbox.StringRequest;
+import com.example.dmn_news.R;
+import com.example.dmn_news.adapters.ArticleAdapter;
+import com.example.dmn_news.models.Article;
+
+import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -20,5 +29,20 @@ public class HomeActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        loadData();
     }
+
+    private RecyclerView recyclerView;
+    private ArticleAdapter adapter;
+
+    private void loadData(){
+        String url = "https://jsonplaceholder.typicode.com/posts";
+
+        StringRequest request = new StringRequest(Request.Method.GET, url ,
+                response -> {
+                    List<Article> articles =
+                }
+                );
+    }
+
 }
