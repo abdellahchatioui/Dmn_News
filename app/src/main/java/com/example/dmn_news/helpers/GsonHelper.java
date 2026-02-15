@@ -1,10 +1,6 @@
 package com.example.dmn_news.helpers;
 
 
-import android.content.Context;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.Volley;
 import com.example.dmn_news.models.Article;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;

@@ -1,6 +1,5 @@
 package com.example.dmn_news.models;
 
-import androidx.annotation.NonNull;
 
 public class Article {
     private int id;

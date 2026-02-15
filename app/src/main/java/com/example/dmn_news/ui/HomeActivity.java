@@ -1,5 +1,6 @@
 package com.example.dmn_news.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -42,16 +43,28 @@ public class HomeActivity extends AppCompatActivity {
 
         StringRequest request = new StringRequest(Request.Method.GET, url,
                 response -> {
+
                     List<Article> articles = GsonHelper.parseJson(response);
-                    adapter = new ArticleAdapter(articles);
+
+                    adapter = new ArticleAdapter(articles, article -> {
+
+                        Intent intent = new Intent(this, ArticleDetailsActivity.class);
+                        intent.putExtra("title", article.getTitle());
+                        intent.putExtra("body", article.getBody());
+                        intent.putExtra("image", article.getImageUrl());
+                        startActivity(intent);
+
+                    });
+
                     recyclerView.setAdapter(adapter);
                 },
                 error -> {
-                    Toast.makeText(this, "Erreur réseau", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Connection Error !!!", Toast.LENGTH_SHORT).show();
                 }
         );
 
         VolleyHelper.getInstance(this).addToRequestQueue(request);
     }
+
 
 }
