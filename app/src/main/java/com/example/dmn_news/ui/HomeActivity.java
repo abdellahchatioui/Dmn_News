@@ -1,6 +1,7 @@
 package com.example.dmn_news.ui;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +14,8 @@ import com.android.volley.Request;
 import com.android.volley.toolbox.StringRequest;
 import com.example.dmn_news.R;
 import com.example.dmn_news.adapters.ArticleAdapter;
+import com.example.dmn_news.helpers.GsonHelper;
+import com.example.dmn_news.helpers.VolleyHelper;
 import com.example.dmn_news.models.Article;
 
 import java.util.List;
@@ -40,9 +43,15 @@ public class HomeActivity extends AppCompatActivity {
 
         StringRequest request = new StringRequest(Request.Method.GET, url ,
                 response -> {
-                    List<Article> articles =
+                    List<Article> articles = GsonHelper.parseJson(response);
+                    adapter = new ArticleAdapter(articles);
+                    recyclerView.setAdapter(adapter);
+                },
+                error -> {
+                    Toast.makeText(this, "Connection Error !", Toast.LENGTH_SHORT).show();
                 }
                 );
+        VolleyHelper.getInstance(this).addToRequestQueue(request);
     }
 
 }
