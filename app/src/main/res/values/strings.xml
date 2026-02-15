@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Dmn_News</string>
+    <string name="app_logo">Logo de l\'application</string>
+    <string name="splash_slogan">Votre source d\'actualités</string>
 </resources>
