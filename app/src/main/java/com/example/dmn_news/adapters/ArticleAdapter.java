@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.dmn_news.R;
@@ -13,12 +15,13 @@ import com.example.dmn_news.models.Article;
 import java.util.List;
 
 public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleViewHolder> {
-    private List<Article> articles;
+    private final List<Article> articles;
 
     public ArticleAdapter(List<Article> articles) {
         this.articles = articles;
     }
 
+    @NonNull
     @Override
     public ArticleViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_article, parent, false);

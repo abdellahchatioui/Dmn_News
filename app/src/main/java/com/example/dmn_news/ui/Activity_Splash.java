@@ -27,7 +27,7 @@ public class Activity_Splash extends AppCompatActivity {
         }
 
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
-            Intent intent = new Intent(Activity_Splash.this, MainActivity.class);
+            Intent intent = new Intent(Activity_Splash.this, HomeActivity.class);
             startActivity(intent);
             finish();
         },SPLASH_DURATION);
