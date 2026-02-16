@@ -1,6 +1,7 @@
 package com.example.dmn_news.ui;
 
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -33,5 +34,8 @@ public class ArticleDetailsActivity extends AppCompatActivity {
         Glide.with(this)
                 .load(image)
                 .into(imgArticle);
+
+        Button btnback = findViewById(R.id.btnBack);
+        btnback.setOnClickListener(v -> finish());
     }
 }

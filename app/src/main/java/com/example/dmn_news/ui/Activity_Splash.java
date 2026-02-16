@@ -16,17 +16,19 @@ import com.example.dmn_news.MainActivity;
 import com.example.dmn_news.R;
 
 public class Activity_Splash extends AppCompatActivity {
-    private static final int SPLASH_DURATION = 5000;
+    private static final int SPLASH_DURATION = 3000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_splash);
 
+        // Hide Action Bar
         if(getSupportActionBar() != null){
             getSupportActionBar().hide();
         }
 
+        // Logo Animation
         ImageView logo = findViewById(R.id.imgLogo);
 
         logo.setAlpha(0f);
@@ -35,12 +37,12 @@ public class Activity_Splash extends AppCompatActivity {
                 .setDuration(3000)
                 .start();
 
+        // Delay Before Moving to Home
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
             Intent intent = new Intent(Activity_Splash.this, HomeActivity.class);
             startActivity(intent);
             finish();
         },SPLASH_DURATION);
-
 
     }
 

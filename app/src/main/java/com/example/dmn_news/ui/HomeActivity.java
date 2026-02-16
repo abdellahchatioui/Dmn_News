@@ -35,7 +35,6 @@ public class HomeActivity extends AppCompatActivity {
         //grid layout
         //recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
         loadData();
-
     }
 
     private void loadData() {
