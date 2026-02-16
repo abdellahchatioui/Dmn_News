@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +26,14 @@ public class Activity_Splash extends AppCompatActivity {
         if(getSupportActionBar() != null){
             getSupportActionBar().hide();
         }
+
+        ImageView logo = findViewById(R.id.imgLogo);
+
+        logo.setAlpha(0f);
+        logo.animate()
+                .alpha(1f)
+                .setDuration(3000)
+                .start();
 
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
             Intent intent = new Intent(Activity_Splash.this, HomeActivity.class);
